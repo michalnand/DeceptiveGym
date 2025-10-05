@@ -1,13 +1,9 @@
+from pathlib import Path
 import numpy
 
 import DeceptiveGym
 
-import time
-
 import cv2
-
-
-from pathlib import Path
 
 
 
@@ -51,6 +47,8 @@ class OasisTrap:
 
         self.observation_shape = (3, texture_height*height, texture_width*width)
         self.actions_count     = 5
+
+        self.env_log = DeceptiveGym.ValuesLogger("env")
 
         self.info = {}
         self.info["negative"]       = 0
@@ -146,6 +144,9 @@ class OasisTrap:
 
         self.infos = self._make_infos()
 
+        for key, value in self.infos[0].items():            
+            self.env_log.add(str(key), float(value))
+
 
         return self.states, rewards, dones, self.infos
 
@@ -159,7 +160,7 @@ class OasisTrap:
         cv2.waitKey(1)
 
     def get_logs(self):     
-        return [self.infos[0]]
+        return [self.env_log]
 
 
     def _create_level(self):
