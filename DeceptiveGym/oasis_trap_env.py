@@ -139,8 +139,8 @@ class OasisTrap:
                 rewards[n] = -1.0
                 self.info["negative"]+= 1
 
-        self.info["visited_map"] = self.visited_map
-
+        #self.info["visited_map"] = self.visited_map
+        
 
         self.infos = self._make_infos()
 
