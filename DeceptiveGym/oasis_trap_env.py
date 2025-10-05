@@ -158,6 +158,10 @@ class OasisTrap:
         cv2.imshow("img", img)
         cv2.waitKey(1)
 
+    def get_logs(self):     
+        return [self.infos[0]]
+
+
     def _create_level(self):
         level = [
             [0, 0, 0, 0, 1, 0, 0, 0],
