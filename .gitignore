@@ -26,13 +26,4 @@ MANIFEST
 #filesystem
 .DS_Store
 *.DS_Store
-
-#videos  
-*.avi
-*.png
-*.mp4
-
-#trained models
-*.pt
-*.npy
-*.log
+    
