@@ -161,6 +161,10 @@ class OasisTrap:
 
     def get_logs(self):     
         return [self.env_log]
+    
+
+    def save(self, result_path):    
+        numpy.save(result_path + "/visitation_map.npy", self.visited_map)
 
 
     def _create_level(self):
