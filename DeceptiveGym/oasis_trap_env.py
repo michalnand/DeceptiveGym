@@ -82,8 +82,10 @@ class OasisTrap:
 
 
     def step(self, actions):
-
+        
+        self.total_steps+= 1
         self.steps+= 1
+
 
         dx = 0
         dx+= 1*(actions == 1)
@@ -163,9 +165,9 @@ class OasisTrap:
         return [self.env_log]
     
 
-    def save(self, result_path):    
+    def save(self, result_path):       
 
-        file_name = result_path + "/visitation_map.npy"
+        file_name = result_path + "/visitation_map_" + str(self.total_steps) + ".npy"
         numpy.save(file_name, self.visited_map)
         print("saving map into ", file_name)
 
