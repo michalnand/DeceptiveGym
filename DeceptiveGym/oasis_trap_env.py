@@ -164,7 +164,10 @@ class OasisTrap:
     
 
     def save(self, result_path):    
-        numpy.save(result_path + "/visitation_map.npy", self.visited_map)
+
+        file_name = result_path + "/visitation_map.npy"
+        numpy.save(file_name, self.visited_map)
+        print("saving map into ", file_name)
 
 
     def _create_level(self):
